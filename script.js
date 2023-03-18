@@ -149,3 +149,22 @@ btnScrollTo.addEventListener('click', function (e) {
   section1.scrollIntoView({ behavior: 'smooth' });
 });
 // button.scrollIntoView(section);
+
+// Types of Events and Event handlers
+const h1 = document.querySelector('h1');
+
+const alertH1 = function (e) {
+  alert('addEventListener: Great! you are reading the heading :D');
+};
+
+h1.addEventListener('mouseenter', alertH1);
+
+setTimeout(() => {
+  h1.removeEventListener('mouseenter', alertH1);
+  0;
+}, 3000);
+
+// Old scroll way
+// h1.onmouseenter = function (e) {
+//   alert('addEventListener: Greqat! you are reading the heading :D');
+// };
