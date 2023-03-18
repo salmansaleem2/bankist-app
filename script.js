@@ -72,4 +72,45 @@ document
   .querySelector('.btn--close-cookies')
   .addEventListener('click', function () {
     message.remove();
+    message.parentElement.removeChild(message);
   });
+
+// Refrence Lecture on STYLES, ATTRIBUTES AND CLASSES
+
+// styles
+message.style.backgroundColor = '#37383d';
+message.style.width = '120%';
+const getMessageHeight = getComputedStyle(message).height;
+message.style.height = parseInt(getMessageHeight) + 30 + 'px';
+
+// console.log(document);
+// console.log(
+//   document.documentElement.style.setProperty('--color-primary', 'orangered')
+// );
+
+// attribute
+const logo = document.querySelector('.nav__logo');
+console.log(logo.alt);
+console.log(logo.src);
+console.log(logo.className);
+
+logo.alt = 'Beautiful minimalist logo';
+// Non-standard
+console.log(logo.designer);
+console.log(logo.getAttribute('designer'));
+
+logo.setAttribute('company', 'Bankist');
+
+// images relative and absolute path
+
+// special type of attribute which is data attribute?
+console.log(logo.dataset.versionNumber);
+
+// classes
+logo.classList.add('c');
+logo.classList.remove('c');
+logo.classList.toggle('c');
+logo.classList.contains('c');
+
+// for to add multiple classes
+logo.classList.add('c', 'j');
