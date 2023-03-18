@@ -34,54 +34,54 @@
 // });
 
 // Selecting Element
-console.log(document.documentElement);
-console.log(document.head);
-console.log(document.body);
+// console.log(document.documentElement);
+// console.log(document.head);
+// console.log(document.body);
 
-const header = document.querySelector('.header');
-const allSection = document.querySelectorAll('.section');
-console.log(allSection);
+// const header = document.querySelector('.header');
+// const allSection = document.querySelectorAll('.section');
+// console.log(allSection);
 
-document.getElementById('section--1');
+// document.getElementById('section--1');
 // this element return html collections
-const allButton = document.getElementsByTagName('button');
+// const allButton = document.getElementsByTagName('button');
 
-console.log(allButton);
+// console.log(allButton);
 
 // it also return live html collection
-document.getElementsByClassName('btn');
+// document.getElementsByClassName('btn');
 
 // creating and inserting elements
 // .insertAdjacentHTML // creating html element jonas favourite
 
-const message = document.createElement('div');
-console.log(message);
+// const message = document.createElement('div');
+// console.log(message);
 
-message.classList.add('cookie-message');
-message.innerHTML =
-  'we use cookies for improved functionality and analytics. <button class="btn btn--close-cookies">Got it!</button>';
+// message.classList.add('cookie-message');
+// message.innerHTML =
+//   'we use cookies for improved functionality and analytics. <button class="btn btn--close-cookies">Got it!</button>';
 // header.prepend(message);
-header.append(message);
+// header.append(message);
 // header.append(message.cloneNode(true));
 
 // header.before(message);
 // header.after(message);
 
 // Delete element
-document
-  .querySelector('.btn--close-cookies')
-  .addEventListener('click', function () {
-    message.remove();
-    message.parentElement.removeChild(message);
-  });
+// document
+//   .querySelector('.btn--close-cookies')
+//   .addEventListener('click', function () {
+//     message.remove();
+//     message.parentElement.removeChild(message);
+//   });
 
 // Refrence Lecture on STYLES, ATTRIBUTES AND CLASSES
 
 // styles
-message.style.backgroundColor = '#37383d';
-message.style.width = '120%';
-const getMessageHeight = getComputedStyle(message).height;
-message.style.height = parseInt(getMessageHeight) + 30 + 'px';
+// message.style.backgroundColor = '#37383d';
+// message.style.width = '120%';
+// const getMessageHeight = getComputedStyle(message).height;
+// message.style.height = parseInt(getMessageHeight) + 30 + 'px';
 
 // console.log(document);
 // console.log(
@@ -89,28 +89,63 @@ message.style.height = parseInt(getMessageHeight) + 30 + 'px';
 // );
 
 // attribute
-const logo = document.querySelector('.nav__logo');
-console.log(logo.alt);
-console.log(logo.src);
-console.log(logo.className);
+// const logo = document.querySelector('.nav__logo');
+// console.log(logo.alt);
+// console.log(logo.src);
+// console.log(logo.className);
 
-logo.alt = 'Beautiful minimalist logo';
+// logo.alt = 'Beautiful minimalist logo';
 // Non-standard
-console.log(logo.designer);
-console.log(logo.getAttribute('designer'));
+// console.log(logo.designer);
+// console.log(logo.getAttribute('designer'));
 
-logo.setAttribute('company', 'Bankist');
+// logo.setAttribute('company', 'Bankist');
 
 // images relative and absolute path
 
 // special type of attribute which is data attribute?
-console.log(logo.dataset.versionNumber);
+// console.log(logo.dataset.versionNumber);
 
 // classes
-logo.classList.add('c');
-logo.classList.remove('c');
-logo.classList.toggle('c');
-logo.classList.contains('c');
+// logo.classList.add('c');
+// logo.classList.remove('c');
+// logo.classList.toggle('c');
+// logo.classList.contains('c');
 
 // for to add multiple classes
-logo.classList.add('c', 'j');
+// logo.classList.add('c', 'j');
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+
+const section1 = document.querySelector('#section--1');
+
+// console.log(button, section);
+btnScrollTo.addEventListener('click', function (e) {
+  // btnScrollTo.scrollIntoView(section1);
+
+  const slcoords = section1.getBoundingClientRect();
+  console.log(e.target.getBoundingClientRect());
+  console.log('Current Scroll (X/Y)', window.pageXOffset, pageYOffset);
+
+  // height and width of viewport
+  console.log(
+    'height/width',
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  );
+
+  // Scrolling
+  // window,
+  //   scrollTo(
+  //     slcoords.left + window.pageXOffset,
+  //     slcoords.top + window.pageYOffset
+  //   );
+
+  // window.scrollTo({
+  //   left: slcoords.left + window.pageXOffset,
+  //   top: slcoords.top + window.pageYOffset,
+  //   behavior: 'smooth',
+  // });
+  section1.scrollIntoView({ behavior: 'smooth' });
+});
+// button.scrollIntoView(section);
